@@ -10,7 +10,7 @@ services:
       - TZ=Europe/Madrid
     restart: always
     volumes:
-      - /mnt/usb256/seafile:/shared # <-- Permanent data are stored in external drive
+      - /mnt/usb256/seafile:/shared
     ports:
       - 8000:8000
       - 8082:8082
