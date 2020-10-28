@@ -9,7 +9,7 @@ then
     ln -s /shared/media ./seafile-server-$VERSION/seahub
     
     # Run installation script
-    ./seafile-server-$VERSION/setup-seafile-mysql.sh
+    ./seafile-server-$VERSION/setup-seafile.sh
     
     # Properly expose avatars and custom assets
     rm -rf /shared/media/avatars
