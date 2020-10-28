@@ -11,4 +11,8 @@ services:
     restart: always
     volumes:
       - /mnt/usb256/seafile:/shared # <-- Permanent data are stored in external drive
+    ports:
+      - 8000:8000
+      - 8082:8082
+      - 8083:8083
     depends_on:
