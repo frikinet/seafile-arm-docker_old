@@ -2,38 +2,8 @@ version: '3'
 
 services:
   seafile:
-    image: franchetti/seafile-arm
+    image: frikinet/seafile-pi4-sqlite
     restart: always
     volumes:
-      - ./seafile:/shared # <-- Permanent data are stored in the same folder as the compose file by default
+      - /mnt/usb256/seafile:/shared # <-- Permanent data are stored in external drive
     depends_on:
-      - db
-
-  db:
-    image: linuxserver/mariadb
-    restart: always
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - MYSQL_ROOT_PASSWORD= # <-- Choose a password for the root user
-      - TZ=Europe/Zurich #     <-- Change if needed
-    volumes:
-      - ./db:/config # <-- Permanent data are stored in the same folder as the compose file by default
-      
-  reverse-proxy:
-    image: linuxserver/swag
-    restart: always
-    cap_add:
-      - NET_ADMIN
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Zurich # <-- Change if needed
-      - URL=your.domain #  <-- Your domain
-      - VALIDATION=http
-    volumes:
-      - ./reverse-proxy:/config # <-- Permanent data are stored in the same folder as the compose file by default
-      - ./seafile:/shared # <-- Has to be the same volume as the seafile service
-    ports:
-      - 443:443
-      - 80:80
