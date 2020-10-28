@@ -3,6 +3,11 @@ version: '3'
 services:
   seafile:
     image: frikinet/seafile-pi4-sqlite
+    container_name: seafile
+    environment:
+      - PUID=1005
+      - PGID=1005
+      - TZ=Europe/Madrid
     restart: always
     volumes:
       - /mnt/usb256/seafile:/shared # <-- Permanent data are stored in external drive
