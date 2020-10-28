@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     python3-jinja2 \
     python-certifi \
     python-idna \
-    python-request \
+    python-requests \
     sqlite3
 
 ARG VERSION=7.1.4
