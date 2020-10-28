@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libxslt-dev \
     python3-jinja2 \
-    python3-sqlalchemy
+    sqlite3
 
 ARG VERSION=7.1.4
 
