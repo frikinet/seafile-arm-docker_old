@@ -5,6 +5,4 @@ services:
     stdin_open: true
     tty: true
     depends_on:
-      - db
-      - reverse-proxy
     entrypoint: ["/root/init.sh"]
